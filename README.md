@@ -1,282 +1,485 @@
-Learning Progress Report — Praveen Pawar
-> \*\*EPAM CoE Learning Track | 11 Topics Covered | Learning status: Completed\*\*
-This repository documents my learning progress across 11 technical topics covering concurrent systems, Python programming, artificial intelligence, prompt and agent evaluation, context engineering, AI orchestration, and multi-agent communication.
-The accompanying Learning Progress Report PDF provides a topic-wise learning summary, with two dedicated pages for each topic. It explains the core concepts, practical relevance, engineering considerations, and key learning outcomes.
----
-##Table of Contents
 
-##Learning Overview
+# EPAM CoE – Learning Progress Report
+### Praveen Pawar | 11 Topics Completed
 
-##Progress at a Glance
+> **Learning Track:** EPAM CoE  
+> **Learner:** Praveen Pawar  
+> **Topics Covered:** 11/11  
+> **Overall Learning Status:** Completed
 
-Topic-wise Learning Summary
-
-1. Instruction Reordering & Memory Barriers
-2. Cache Line Bouncing & Lock-Free Scale
-3. Python
-4. AI Foundations
-5. Prompt Evaluation
-6. AI Agents
-7. Agent Instruction Evals
-8. Context Engineering
-9. AI Fluency
-10. AI Orchestration
-11. Agent to Agent Communication
-Key Learning Areas
-How This Repository Can Be Maintained
-Learning Report
-Acknowledgement
----
-Learning Overview
-The learning track progressed from low-level computer-system behavior to modern AI application design.
-The first two topics developed an understanding of concurrency, memory ordering, cache coherence, and scalability. Python provided a programming foundation for implementing and experimenting with software concepts. The AI-focused topics then covered the foundations of AI, systematic prompt evaluation, agent behavior, context design, orchestration, and communication between agents.
-Completion statement: I have covered all 11 topics listed in the learning tracker. The status in this README reflects my clarification that all 11 topics have been learned.
-Progress at a Glance
-Metric	Progress
-Total topics in the learning track	11
-Topics covered	11
-Topics remaining in this track	0
-Overall learning coverage	100%
-Current status	Completed
-
-#	Topic	Status
-1	Instruction Reordering & Memory Barriers	Completed
-2	Cache Line Bouncing & Lock-Free Scale	Completed
-3	Python	Completed
-4	AI Foundations	Completed
-5	Prompt Evaluation	Completed
-6	AI Agents	Completed
-7	Agent Instruction Evals	Completed
-8	Context Engineering	Completed
-9	AI Fluency	Completed
-10	AI Orchestration	Completed
-11	Agent to Agent Communication	Completed
 ---
 
-Topic-wise Learning Summary
-1. Instruction Reordering & Memory Barriers
-Area: Systems and concurrency  
-Status: Completed
-This topic covers how modern processors and compilers may reorder independent instructions to improve execution efficiency, and why such behavior matters in concurrent programs.
-Key concepts covered
-Instruction reordering and the difference between source-code order and execution/observation order.
-Shared-memory behavior when multiple threads read and write data.
-Memory barriers or fences as ordering constraints.
-The distinction between memory ordering and atomicity.
-Synchronization concepts such as acquire/release behavior.
-Practical understanding
-A producer-consumer workflow illustrates why publishing data and signalling that it is ready must be correctly ordered. Synchronization primitives help ensure that a consumer observes the producer's writes safely.
-Key takeaway
-Concurrent code should rely on defined synchronization and memory-model guarantees—not assumptions based only on source-code order or timing.
+## 1. Introduction
 
-3. Cache Line Bouncing & Lock-Free Scale
-Area: Systems and concurrency  
-Status: Completed
-This topic explores how cache-coherence traffic can affect performance when multiple CPU cores frequently update data located on the same cache line.
-Key concepts covered
-Cache lines and cache-coherence behavior.
-Cache-line bouncing caused by repeated ownership changes.
-False sharing between logically independent variables.
-Contention in atomic operations and lock-free algorithms.
-The difference between lock-free progress guarantees and performance scalability.
-Practical understanding
-Frequently updated per-thread counters can still interfere with one another if they occupy the same cache line. Separating data, reducing shared writes, batching updates, and measuring performance can help address the problem.
-Key takeaway
-Data layout affects concurrent performance. Lock-free design alone does not guarantee scalability; contention and cache-coherence effects must also be considered.
+This repository documents my learning journey as part of the EPAM Center of Excellence (CoE) learning track.
 
-5. Python
-Area: Programming fundamentals  
-Status: Completed
-This topic covers Python as a high-level programming language used in scripting, automation, application development, data processing, and AI workflows.
-Key concepts covered
-Variables, expressions, built-in data types, and collections.
-Conditional statements, loops, and functions.
-Lists, tuples, dictionaries, and sets.
-Object-oriented programming concepts such as classes, objects, attributes, and methods.
-Modules, packages, virtual environments, and dependency management.
-File handling, exceptions, debugging, and testing.
-Practical understanding
-A maintainable Python workflow involves organizing code into reusable functions and modules, isolating dependencies in a virtual environment, handling errors appropriately, and testing normal and boundary cases.
-Key takeaway
-Strong Python fundamentals make it easier to build readable, testable, and maintainable programs and to work with APIs, data tools, and AI libraries.
+Throughout this learning journey, I studied 11 technical topics covering concurrent programming, memory management concepts, Python programming, Artificial Intelligence, prompt evaluation, AI agents, context engineering, AI orchestration, and multi-agent communication.
 
-7. AI Foundations
-Area: Artificial intelligence  
-Status: Completed
-This topic introduces the major concepts behind artificial intelligence and the relationship between AI, machine learning, deep learning, and generative AI.
-Key concepts covered
-Artificial intelligence and intelligent system behavior.
-Supervised, unsupervised, and reinforcement learning.
-Neural networks and deep learning.
-Generative AI and large language models.
-Training, validation, and test data.
-Data leakage, evaluation metrics, and responsible AI use.
-Practical understanding
-An AI project typically involves defining a problem, preparing data, selecting a baseline, training or configuring a model, evaluating it, deploying it, and monitoring its behavior. Evaluation metrics should match the task.
-Key takeaway
-AI is a broad field with multiple approaches. Understanding the model lifecycle, evaluation, data quality, and limitations is essential for responsible AI application development.
+The objective of this learning track was to develop a strong understanding of modern software engineering concepts and emerging AI technologies, including their architecture, working principles, applications, and engineering considerations.
 
-9. Prompt Evaluation
-Area: Prompt and model evaluation  
-Status: Completed
-This topic focuses on evaluating prompts systematically so that prompt quality is based on repeatable evidence rather than a few successful outputs.
-Key concepts covered
-Prompt structure: role, task, context, constraints, examples, and output format.
-Why prompts need testing across varied inputs.
-Building representative evaluation datasets.
-Criteria such as correctness, relevance, completeness, groundedness, safety, and format compliance.
-Rule-based, exact-match, model-based, and human evaluation.
-Prompt versioning and regression testing.
-Practical understanding
-A prompt can be tested against common cases, edge cases, ambiguous requests, and unanswerable questions. Results can be compared across versions to identify improvements and regressions.
-Key takeaway
-A reliable prompt should be evaluated across a defined test set with clear criteria. One good response does not prove that a prompt is dependable.
+This repository serves as a structured record of the topics covered and the key concepts learned.
 
-11. AI Agents
-Area: Agent-based AI systems  
-Status: Completed
-This topic explains how AI agents use models, instructions, tools, context, and control loops to work toward a goal through multiple steps.
-Key concepts covered
-Difference between a basic chatbot response and an agentic workflow.
-Core components: model, instructions, tools, context or memory, and control loop.
-Task planning and decomposition.
-Tool selection, execution, and observation.
-State management and stopping conditions.
-Permissions, error handling, evaluation, and human oversight.
-Practical understanding
-An agent can receive a goal, select an allowed tool, inspect the tool's result, update its task state, and decide whether to continue, finish, or ask for human input.
-Key takeaway
-Useful agents need clear goals, bounded permissions, reliable tool handling, observability, and appropriate human oversight.
-
-13. Agent Instruction Evals
-Area: Agent evaluation and reliability  
-Status: Completed
-This topic covers how to test whether an AI agent follows its operating instructions, respects constraints, uses tools correctly, and handles conflicting or untrusted content safely.
-Key concepts covered
-Instruction adherence and conflict handling.
-Tool selection and argument correctness.
-Task completion and escalation behavior.
-Prompt-injection resistance and treatment of untrusted content.
-Test-case design and expected behavior specifications.
-Trace review, scoring, and regression testing.
-Practical understanding
-An evaluation can test whether an agent treats malicious instructions embedded in a retrieved document as data rather than as governing instructions. Tool-call traces help reviewers inspect the agent's actions, not only its final answer.
-Key takeaway
-Agent rules should be converted into explicit, testable expectations. Evaluation must consider the full workflow, including intermediate tool use and decisions.
-
-15. Context Engineering
-Area: AI system design  
-Status: Completed
-This topic explores how to select, organize, and provide relevant information to an AI model so that it can perform a task more accurately and consistently.
-Key concepts covered
-Context sources: instructions, user requests, conversation history, retrieved documents, tool outputs, and task state.
-Context selection, relevance, and prioritization.
-Retrieval-augmented generation (RAG).
-Chunking, metadata, ranking, and source freshness.
-Context windows, summarization, and state management.
-Provenance, privacy, and untrusted content.
-Practical understanding
-A retrieval workflow can find relevant passages from a knowledge source and provide them to a model. Source identifiers and clear structure help preserve traceability. Missing or conflicting evidence should be surfaced rather than silently guessed.
-Key takeaway
-More context is not always better. Effective context is relevant, sufficient, current, structured, secure, and traceable.
-16. AI Fluency
-Area: Responsible AI use  
-Status: Completed
-This topic develops the ability to work effectively and critically with AI tools while understanding their capabilities, limitations, and risks.
-Key concepts covered
-Understanding what AI systems can and cannot reliably do.
-Framing tasks with clear goals, context, and constraints.
-Iterative collaboration and refinement.
-Verification of important claims and generated outputs.
-Human judgment and accountability.
-Privacy, fairness, transparency, and responsible use.
-Practical understanding
-A useful collaboration process is to define a task, provide relevant context, review the AI-generated result, request targeted improvements, verify important claims, and retain human responsibility for the final decision.
-Key takeaway
-AI fluency is more than prompt writing. It combines task framing, critical evaluation, responsible use, and human judgment.
-17. AI Orchestration
-Area: AI workflow engineering  
-Status: Completed
-This topic covers how multiple models, tools, data sources, and processing steps can be coordinated into a complete AI-powered workflow.
-Key concepts covered
-Workflow orchestration and component coordination.
-Sequential, conditional, parallel, and human-in-the-loop patterns.
-Structured inputs, outputs, and state management.
-Model and tool selection for different workflow steps.
-Timeouts, retries, fallbacks, validation, and idempotency.
-Observability, evaluation, latency, and cost.
-Practical understanding
-A workflow may retrieve information, pass it to a model, validate the model's output, call a tool, and assemble a final result. Each step should have a clear interface and appropriate error handling.
-Key takeaway
-Orchestration turns individual AI capabilities into a dependable workflow through clear data flow, validation, fault handling, monitoring, and approval controls.
-18. Agent to Agent Communication
-Area: Multi-agent systems  
-Status: Completed
-This topic examines how multiple specialized agents can exchange information, delegate tasks, share results, and coordinate toward a common objective.
-Key concepts covered
-Multi-agent systems and role specialization.
-Structured messages and communication protocols.
-Task delegation and bounded subtasks.
-Shared state and handoff information.
-Supervisor, peer-to-peer, pipeline, and reviewer patterns.
-Conflict resolution, trust boundaries, and evaluation.
-Practical understanding
-A coordinator can assign a clearly defined task to a specialist agent. The specialist can return its result along with evidence, assumptions, unresolved issues, and status. The coordinator can validate the handoff before continuing.
-Key takeaway
-Agent-to-agent communication requires structured delegation, reliable handoffs, validation, and conflict handling. The goal is dependable collaboration—not simply increasing the number of agents.
 ---
-Key Learning Areas
-The 11 topics collectively cover the following areas:
-Learning area	Topics represented	Main understanding
-Systems and concurrency	Topics 1–2	Memory ordering, cache coherence, false sharing, and scalability
-Programming	Topic 3	Python fundamentals, modularity, error handling, and testing
-AI fundamentals	Topic 4	AI/ML concepts, generative models, and model lifecycle
-Prompt and agent evaluation	Topics 5–7	Evaluation datasets, instruction adherence, safety, and regression testing
-AI system design	Topics 8–10	Context quality, responsible AI use, and workflow orchestration
-Multi-agent systems	Topic 11	Delegation, structured communication, and coordination
-How This Repository Can Be Maintained
-To keep this learning record useful and reviewable, the repository can be maintained with the following practices:
-Topic-wise notes: Add concise notes in your own words for each topic.
-Practical exercises: Add scripts, experiments, or implementations where applicable.
-Evaluation evidence: Preserve prompt test cases, evaluation criteria, and observed results.
-Clear documentation: Explain the purpose and usage of each code sample or experiment.
-Meaningful commits: Use commit messages that describe the actual change.
-Progress updates: Update the learning tracker and this README when new work is added or the learning status changes.
-Accuracy: Distinguish concepts studied from implementations actually completed. Do not claim a project or experiment was built unless the repository contains evidence of it.
-Suggested Repository Structure
+
+## 2. Learning Progress Overview
+
+| No. | Topic Name | Status |
+|---|---|---|
+| 1 | Instruction Reordering & Memory Barriers | Completed |
+| 2 | Cache Line Bouncing & Lock-Free Scale | Completed |
+| 3 | Python | Completed |
+| 4 | AI Foundations | Completed |
+| 5 | Prompt Evaluation | Completed |
+| 6 | AI Agents | Completed |
+| 7 | Agent Instruction Evals | Completed |
+| 8 | Context Engineering | Completed |
+| 9 | AI Fluency | Completed |
+| 10 | AI Orchestration | Completed |
+| 11 | Agent to Agent Communication | Completed |
+
+**Overall Progress: 11/11 Topics Completed (100%)**
+
+---
+
+## 3. Table of Contents
+
+1. [Instruction Reordering & Memory Barriers](#1-instruction-reordering--memory-barriers)
+2. [Cache Line Bouncing & Lock-Free Scale](#2-cache-line-bouncing--lock-free-scale)
+3. [Python](#3-python)
+4. [AI Foundations](#4-ai-foundations)
+5. [Prompt Evaluation](#5-prompt-evaluation)
+6. [AI Agents](#6-ai-agents)
+7. [Agent Instruction Evals](#7-agent-instruction-evals)
+8. [Context Engineering](#8-context-engineering)
+9. [AI Fluency](#9-ai-fluency)
+10. [AI Orchestration](#10-ai-orchestration)
+11. [Agent to Agent Communication](#11-agent-to-agent-communication)
+
+---
+
+## 4. Detailed Topic-wise Learning Summary
+
+### Topic 1: Instruction Reordering & Memory Barriers
+
+**Status: Completed**
+
+**Overview:**
+
+Instruction reordering is an optimization technique used by modern processors and compilers to improve execution performance. Instructions may execute in a different order from the order in which they appear in the source code, provided the required program behavior is preserved.
+
+**Key Concepts Learned:**
+
+- Compiler-level instruction reordering.
+- CPU-level instruction reordering.
+- Memory visibility and ordering.
+- Memory barriers and memory fences.
+- Data races and concurrency issues.
+- Synchronization in multithreaded programs.
+- Relationship between memory ordering and thread safety.
+
+**Learning Outcome:**
+
+Developed an understanding of how instruction reordering affects concurrent program execution and why memory barriers are important for maintaining correct synchronization and memory visibility.
+
+---
+
+### Topic 2: Cache Line Bouncing & Lock-Free Scale
+
+**Status: Completed**
+
+**Overview:**
+
+Cache line bouncing occurs when multiple processor cores repeatedly access or modify data located on the same cache line. This can cause cache-coherence traffic and negatively affect application performance.
+
+Lock-free programming focuses on designing concurrent operations that allow threads to make progress without relying on traditional mutual-exclusion locks for every operation.
+
+**Key Concepts Learned:**
+
+- CPU cache hierarchy.
+- Cache lines and cache coherence.
+- False sharing.
+- Cache line bouncing.
+- MESI and MOESI cache-coherence protocols.
+- Atomic operations.
+- Compare-and-Swap (CAS).
+- Lock-free programming principles.
+- Scalability and contention.
+
+**Learning Outcome:**
+
+Understood how cache coherence, false sharing, and synchronization overhead affect concurrent application performance, and how lock-free techniques can help improve scalability.
+
+---
+
+### Topic 3: Python
+
+**Status: Completed**
+
+**Overview:**
+
+Python is a high-level, interpreted, general-purpose programming language widely used in software development, automation, data analysis, and artificial intelligence.
+
+**Key Learning Areas:**
+
+- Python syntax and programming fundamentals.
+- Variables and data types.
+- Operators and expressions.
+- Conditional statements.
+- Loops and iteration.
+- Functions and modular programming.
+- Lists, tuples, sets, and dictionaries.
+- Object-oriented programming fundamentals.
+- Exception handling.
+- Modules and packages.
+
+**Learning Outcome:**
+
+Developed an understanding of Python programming fundamentals and its role in general-purpose software development and AI-related applications.
+
+---
+
+### Topic 4: AI Foundations
+
+**Status: Completed**
+
+**Overview:**
+
+Artificial Intelligence is a field of computer science focused on developing systems capable of performing tasks that typically require human intelligence.
+
+**Key Concepts Learned:**
+
+- Introduction to Artificial Intelligence.
+- Machine Learning fundamentals.
+- Deep Learning concepts.
+- Neural networks.
+- Generative AI.
+- Large Language Models (LLMs).
+- Natural Language Processing.
+- Training and inference.
+- Tokens and embeddings.
+- AI applications and limitations.
+
+**Learning Outcome:**
+
+Established a foundational understanding of AI technologies, their major concepts, and their applications in modern software systems.
+
+---
+
+### Topic 5: Prompt Evaluation
+
+**Status: Completed**
+
+**Overview:**
+
+Prompt evaluation is the process of assessing how effectively prompts guide AI models to generate accurate, relevant, consistent, and useful responses.
+
+**Key Concepts Learned:**
+
+- Prompt design and evaluation.
+- Prompt quality assessment.
+- Evaluation criteria and metrics.
+- Accuracy and relevance.
+- Consistency and completeness.
+- Test cases and evaluation datasets.
+- Expected versus actual outputs.
+- Edge-case testing.
+- Iterative prompt improvement.
+- Evaluation of AI-generated responses.
+
+**Learning Outcome:**
+
+Understood the importance of systematic prompt evaluation and how structured testing can improve the reliability and quality of AI-generated outputs.
+
+---
+
+### Topic 6: AI Agents
+
+**Status: Completed**
+
+**Overview:**
+
+AI agents are systems that use AI models to understand tasks, make decisions, interact with tools, and perform actions to achieve specified objectives.
+
+**Key Concepts Learned:**
+
+- Introduction to AI agents.
+- Agent architecture.
+- Goals and task decomposition.
+- Reasoning and decision-making.
+- Tool calling and external integrations.
+- Planning and execution.
+- Agent memory.
+- Feedback and observation.
+- Autonomous and semi-autonomous workflows.
+- AI agent applications.
+
+**Learning Outcome:**
+
+Developed an understanding of how AI agents operate, interact with tools, and execute multi-step tasks through reasoning and action cycles.
+
+---
+
+### Topic 7: Agent Instruction Evals
+
+**Status: Completed**
+
+**Overview:**
+
+Agent instruction evaluation focuses on testing whether an AI agent correctly understands and follows the instructions provided to it.
+
+**Key Concepts Learned:**
+
+- Instruction-following evaluation.
+- Agent behavior assessment.
+- Expected and actual behavior.
+- Task completion criteria.
+- Instruction adherence.
+- Evaluation test cases.
+- Constraint handling.
+- Error and failure analysis.
+- Consistency testing.
+- Evaluation-driven improvement.
+
+**Learning Outcome:**
+
+Understood how to evaluate agent behavior against defined instructions and requirements, and how systematic testing helps identify instruction-following failures.
+
+---
+
+### Topic 8: Context Engineering
+
+**Status: Completed**
+
+**Overview:**
+
+Context engineering involves designing and managing the information supplied to an AI model so that it has the relevant context required to perform a task effectively.
+
+**Key Concepts Learned:**
+
+- Context window.
+- Context selection and organization.
+- System and user instructions.
+- Conversation history.
+- Context relevance.
+- Token limitations.
+- Retrieval-Augmented Generation (RAG) fundamentals.
+- External knowledge integration.
+- Context management.
+- Reducing irrelevant information.
+
+**Learning Outcome:**
+
+Understood how context quality, relevance, and organization influence AI model responses and how effective context management supports reliable AI applications.
+
+---
+
+### Topic 9: AI Fluency
+
+**Status: Completed**
+
+**Overview:**
+
+AI fluency is the ability to understand, use, evaluate, and interact effectively with AI systems while recognizing their capabilities and limitations.
+
+**Key Concepts Learned:**
+
+- Understanding AI capabilities.
+- Effective AI interaction.
+- Prompting and communication.
+- Critical evaluation of AI outputs.
+- Identifying AI limitations.
+- Responsible AI usage.
+- Human-AI collaboration.
+- Identifying incorrect or unsupported outputs.
+- AI ethics and responsible practices.
+- Continuous learning and adaptation.
+
+**Learning Outcome:**
+
+Developed a better understanding of how to use AI effectively, evaluate generated information critically, and apply responsible practices when working with AI systems.
+
+---
+
+### Topic 10: AI Orchestration
+
+**Status: Completed**
+
+**Overview:**
+
+AI orchestration involves coordinating multiple AI components, models, tools, and workflows to complete complex tasks through an organized execution process.
+
+**Key Concepts Learned:**
+
+- AI workflow design.
+- Task decomposition.
+- Workflow coordination.
+- Tool and model integration.
+- Sequential execution.
+- Parallel execution.
+- Conditional workflows.
+- Multi-agent coordination.
+- Workflow monitoring.
+- Error handling and execution management.
+
+**Learning Outcome:**
+
+Understood how different AI components and tools can be coordinated to build structured workflows and handle complex tasks efficiently.
+
+---
+
+### Topic 11: Agent to Agent Communication
+
+**Status: Completed**
+
+**Overview:**
+
+Agent-to-agent communication refers to the exchange of information, instructions, and results between multiple AI agents working together to achieve common or related objectives.
+
+**Key Concepts Learned:**
+
+- Multi-agent systems.
+- Agent communication.
+- Message exchange.
+- Task delegation.
+- Coordination between agents.
+- Information sharing.
+- Collaborative problem-solving.
+- Agent roles and responsibilities.
+- Communication protocols and structured messages.
+- Multi-agent workflow coordination.
+
+**Learning Outcome:**
+
+Developed an understanding of how multiple AI agents communicate, share information, delegate tasks, and coordinate their activities within a collaborative system.
+
+---
+
+## 5. Key Learning Areas
+
+The 11 completed topics cover the following major technical areas:
+
+| Learning Area | Related Topics |
+|---|---|
+| Concurrent Programming | Instruction Reordering, Memory Barriers |
+| Computer Architecture | Cache Line Bouncing, Lock-Free Scale |
+| Programming | Python |
+| Artificial Intelligence | AI Foundations |
+| AI Quality Assessment | Prompt Evaluation, Agent Instruction Evals |
+| Intelligent Systems | AI Agents |
+| AI Context Management | Context Engineering |
+| AI Literacy | AI Fluency |
+| Workflow Management | AI Orchestration |
+| Multi-Agent Systems | Agent to Agent Communication |
+
+---
+
+## 6. Overall Learning Outcomes
+
+After completing all 11 topics, I developed an understanding of:
+
+1. Concurrency, instruction ordering, and memory synchronization.
+2. Cache coherence, false sharing, and lock-free programming concepts.
+3. Python programming fundamentals.
+4. Artificial Intelligence and Large Language Model fundamentals.
+5. Prompt design and systematic evaluation.
+6. AI agent architecture, reasoning, and tool usage.
+7. Agent instruction-following evaluation.
+8. Context management and context engineering.
+9. Effective and responsible AI usage.
+10. AI workflow orchestration.
+11. Communication and coordination between multiple AI agents.
+
+These learning areas provide a foundation for understanding modern software engineering and AI-driven application development.
+
+---
+
+## 7. Suggested Repository Structure
+
+The following structure can be used to organize learning notes, documentation, and practical examples as they are added.
+
 ```text
-.
+EPAM-Learning/
+│
+├── README.md
+│
+├── Praveen_Pawar_EPAM_CoE_Learning_Report.pdf
+│
+├── notes/
+│   ├── instruction-reordering-memory-barriers/
+│   ├── cache-line-bouncing-lock-free-scale/
+│   ├── python/
+│   ├── ai-foundations/
+│   ├── prompt-evaluation/
+│   ├── ai-agents/
+│   ├── agent-instruction-evals/
+│   ├── context-engineering/
+│   ├── ai-fluency/
+│   ├── ai-orchestration/
+│   └── agent-to-agent-communication/
+│
+└── practice/
+    ├── python/
+    ├── ai-experiments/
+    └── evaluation-examples/
+```
 
-
-> This is a suggested repository structure. Add folders and files as the corresponding notes and practical work are created.
+*Note: This is a suggested structure. Additional folders and practical files can be added as the corresponding work is created.*
 
 ---
 
-## Learning Report
+## 8. Detailed Learning Progress Report
 
-The detailed PDF report accompanies this README and documents all 11 completed learning topics.
+The accompanying PDF provides a more detailed record of the learning journey.
 
-**Detailed Learning Progress Report:**
+**Report:** `Praveen_Pawar_EPAM_CoE_Learning_Report.pdf`
 
-📄 [View / Download Praveen's EPAM CoE Learning Report](./Praveen_Pawar_EPAM_CoE_Learning_Report.pdf)
+📄 **[View / Download Detailed Learning Progress Report](./Praveen_Pawar_EPAM_CoE_Learning_Report.pdf)**
 
-The report includes:
-- Detailed explanations of all 11 topics.
-- Core technical concepts.
-- Practical applications and examples.
+The report covers:
+
+- All 11 completed learning topics.
+- Topic-wise explanations.
+- Important technical concepts.
+- Practical relevance and applications.
 - Engineering considerations.
 - Key learning outcomes.
 
-## Acknowledgement
+---
 
-This README documents my learning progress across all 11 topics in the EPAM CoE learning track. It provides mentors and reviewers with an overview of the subjects covered and the supporting learning documentation.
+## 9. Maintaining This Repository
+
+To keep this repository useful and up to date:
+
+- Add new learning notes under the relevant topic folders.
+- Include code examples when practical implementations are created.
+- Document experiments and their observed results.
+- Update the learning progress when new topics are completed.
+- Use meaningful Git commit messages.
+- Keep documentation aligned with the actual work completed.
+- Distinguish concepts studied from implementations actually performed.
 
 ---
 
-**Learner:** Praveen Pawar
+## 10. Acknowledgement
 
-**Learning Track:** EPAM CoE
+This repository represents my learning progress throughout the EPAM CoE learning track.
 
-**Topics Covered:** 11/11
+I would like to acknowledge the mentors and team members who supported the learning process and helped strengthen my understanding of software engineering and emerging AI technologies.
+
+The purpose of this repository is to maintain a structured learning record and provide a clear overview of the 11 topics covered.
+
+---
+
+## 11. Learner Information
+
+**Name:** Praveen Pawar
+
+**Program:** EPAM Center of Excellence (CoE)
+
+**Learning Progress:** 11/11 Topics Completed
 
 **Overall Status:** Completed
+
+---
+
+*Learning is a continuous process. This repository will serve as a foundation for further exploration, practice, and development in software engineering and Artificial Intelligence.*
