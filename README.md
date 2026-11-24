@@ -1,11 +1,10 @@
-# EPAM Learning Tasks
+# EPAM Training Notes - Praveen Pawar
 
-This repository is for tracking and uploading my learning progress, notes, and task deliverables for the EPAM training program.
+Repository for my study notes and technical documentation completed during the EPAM training track.
 
-## Sprints
+## Modules
 
-- **Sprint 1/**: Consolidated learning report covering concurrency, memory models, Python, and AI topics
+- **Sprint 1/**: Study notes covering low-level concurrency, memory models, Python runtime, and AI systems.
 - **Sprint 2/**: Coming soon
 
-All reports are kept in PDF format for direct reading here on GitHub. 
-
+All notes are kept in PDF format for direct reading here on GitHub.

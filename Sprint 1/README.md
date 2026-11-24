@@ -1,5 +1,18 @@
-# Sprint 1 Report
+# Sprint 1 - Core Learnings & Notes
 
-This folder contains my consolidated progress report for Sprint 1.
+This section contains my notes on the 11 topics studied during Sprint 1:
 
-- [Sprint 1 Learning Progress Report.pdf](./Sprint%201%20Learning%20Progress%20Report.pdf): 25-page comprehensive report covering 11 core topics across hardware concurrency, memory barriers, Python internals, prompt evaluations, agentic architectures, and orchestration.
+- [Hardware Concurrency and AI Systems Notes.pdf](./Hardware%20Concurrency%20and%20AI%20Systems%20Notes.pdf)
+
+### Topics Covered
+1. Instruction Reordering & Memory Barriers
+2. Cache Line Bouncing & Lock-Free Scaling
+3. Python Runtime & Performance
+4. AI Foundations & LLM Architecture
+5. Prompt Evaluation & Automated Testing
+6. AI Agents & Practical Engineering
+7. Agent Instruction Evals
+8. Context Window Management
+9. AI Fluency & Tool Usage
+10. AI Orchestration & Multi-Step Workflows
+11. Agent-to-Agent Communication Protocols
