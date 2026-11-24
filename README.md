@@ -8,3 +8,4 @@ Repository for my study notes and technical documentation completed during the E
 - **Sprint 2/**: Coming soon
 
 All notes are kept in PDF format for direct reading here on GitHub.
+
